@@ -19,9 +19,14 @@ export const api = {
 export const DataProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
+  const [last, setLast] = useState(null);
   const getData = useCallback(async () => {
     try {
-      setData(await api.loadData());
+      const newData = await api.loadData()
+      const newLast = newData.events[newData.events.length-1] // FIX set newLast for footer card
+      setLast(newLast)
+      setData(newData)
+      
     } catch (err) {
       setError(err);
     }
@@ -37,6 +42,7 @@ export const DataProvider = ({ children }) => {
       value={{
         data,
         error,
+        last,
       }}
     >
       {children}
