@@ -20,11 +20,14 @@ const Slider = () => {
   };
   // FIX byDateDesc.length to byDateDesc.length-1
   useEffect(() => {
-    nextCard();
+    if(byDateDesc){ nextCard();}
+   
   });
   return (
     <div className="SlideCardList">
-      {byDateDesc?.map((event, idx) => (
+      {byDateDesc?.map((event, idx) => 
+        
+        (
         <div key={event.title}>
           <div
             
