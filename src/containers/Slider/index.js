@@ -20,7 +20,7 @@ const Slider = () => {
   };
   // FIX byDateDesc.length to byDateDesc.length-1
   useEffect(() => {
-    if(byDateDesc){ nextCard();}
+    if(byDateDesc){nextCard();}
    
   });
   return (
